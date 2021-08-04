@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Background="#302e37"
+    x:Class="Pokedex_Xam.Views.PokemonDetailPage">
+   <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Background="#302e37">
+            <AbsoluteLayout Grid.Row="1">
+                <Frame BackgroundColor="#d7d7d7" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="0,1" AbsoluteLayout.LayoutFlags="PositionProportional" HeightRequest="200" WidthRequest="400"></Frame>
+                <Frame CornerRadius="40" BackgroundColor="#d7d7d7"  VerticalOptions="CenterAndExpand" HasShadow="False" AbsoluteLayout.LayoutBounds="0,.6,1,.5" AbsoluteLayout.LayoutFlags="All" HeightRequest="2000">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Text="{Binding Name}" HorizontalTextAlignment="Center" Margin="0,50,0,0" FontSize="Title" TextColor="Black"></Label>
+                        <CollectionView Grid.Row="1" ItemsSource="{Binding Types}" HorizontalOptions="CenterAndExpand" >
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                        <StackLayout HorizontalOptions="CenterAndExpand">
+                                            <Frame Background="White" Padding="22,6" HasShadow="False" CornerRadius="15" BorderColor="#572364" Margin="8,0">
+                                                <Label Text="{Binding Type.Name}" TextColor="#572364"></Label>
+                                            </Frame>
+                                        </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <Grid Grid.Row="2" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0">
+                                <Frame Background="#572364" Margin="0" Padding="35,10" HasShadow="False" CornerRadius="18">
+                                    <Label Text="STATS" TextColor="White"></Label>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding StatsCommand}"></TapGestureRecognizer>
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout Grid.Column="1">
+                                <Frame Background="#572364" Margin="0" Padding="35,10" HasShadow="False" CornerRadius="18">
+                                    <Label Text="MOVES" TextColor="White"></Label>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding MovesCommand}"></TapGestureRecognizer>
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                            </StackLayout>
+                        </Grid>
+                        <CollectionView Grid.Row="3" ItemsSource="{Binding Stats}" Margin="20,0" IsVisible="{Binding IsShowContentStats}">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding Stat.Name}" Grid.Column="0"   VerticalOptions="CenterAndExpand" TextColor="Black"></Label>
+                                        <ProgressBar Progress="{Binding Base_stat_Porcent}" ProgressColor="#572364" Grid.Column="1" VerticalOptions="CenterAndExpand"/>
+                                       <Label Text="{Binding Base_stat}" Grid.Column="2" VerticalOptions="CenterAndExpand" TextColor="Black"></Label>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <CollectionView Grid.Row="3" ItemsSource="{Binding Moves}" Margin="20,0" IsVisible="{Binding IsShowContentMoves}">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0,5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="18"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image WidthRequest="100" Source="pokebola.png" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                        <Label Text="{Binding Move.Name}" Grid.Column="1" VerticalOptions="Center" TextColor="Black"></Label>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Grid>
+                </Frame>
+                <Image Source="{Binding Url}" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds=".5,.18" AbsoluteLayout.LayoutFlags="PositionProportional" HeightRequest="200" WidthRequest="200"></Image>
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

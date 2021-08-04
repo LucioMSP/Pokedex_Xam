@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviorsPack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
+             x:Class="Pokedex_Xam.Views.PokemonsPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#302e37">
+    <ContentPage.Content>
+        
+        <StackLayout>
+
+            <ListView 
+                ItemsSource="{Binding pokemonList}">
+
+                <ListView.Header>
+                    <Grid Margin="20,12,0,12">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0" Source="pokebola.png"/>
+
+                        <Label
+                            Grid.Column="1"
+                            VerticalOptions="CenterAndExpand"
+                            TextColor="White"
+                            FontSize="26"
+                            Text="Pokemones"/>
+                    </Grid>
+                </ListView.Header>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                Margin="12,4,12,4"
+                                HasShadow="True"
+                                CornerRadius="14"
+                                BackgroundColor="#45434E">
+                                <Label 
+                                    Margin="-12"
+                                    Padding="12,0,0,0"
+                                    Text="{Binding Name}" 
+                                    TextColor="White"
+                                />
+
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+                <ListView.Behaviors>
+                    <behaviorsPack:EventToCommandBehavior 
+                        EventName="ItemTapped"
+                        Command="{Binding ItemTapped}"
+                        EventArgsPropertyPath="Item"/>
+                </ListView.Behaviors>
+
+                <ListView.Footer>
+                    <StackLayout
+                        Margin="0,8,12,8"
+                        Orientation="Horizontal" 
+                        HorizontalOptions="EndAndExpand">
+                        <Image 
+                            Source="logo_accenture_colores.png" 
+                            HeightRequest="30"/>
+                        <Label 
+                            Text="Accenture" 
+                            FontAttributes="Bold" 
+                            FontSize="14" 
+                            TextColor="White" 
+                            VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </ListView.Footer>
+
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

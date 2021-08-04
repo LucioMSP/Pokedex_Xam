@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Pokedex_Xam.Views.LoginPage"
+    BackgroundColor="#302e37"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">  
+            <Grid>
+                <Grid.ColumnDefinitions> 
+                    <ColumnDefinition Width="500" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+            <Image WidthRequest="150" Source="pokebola.png" Grid.Row="0" HorizontalOptions="Start"/>
+            <Label Text="Pokedex" FontSize="34" TextColor="White" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+            </Grid>
+               
+            
+            <Frame BackgroundColor="#232128" HasShadow="False" CornerRadius="10">  
+                <StackLayout Orientation="Vertical" Spacing="10">  
+                    <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="White"/>  
+                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="White"/>  
+                </StackLayout>  
+            </Frame>  
+            <Button Command="{Binding SubmitCommand}" Text="Login" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#f7522c" />
+
+            <Label Margin="0,0,0,20" Text="I don't have an account"
+                   VerticalOptions="EndAndExpand"
+                   HorizontalOptions="Center"
+                   FontSize="15"
+                   TextColor="White">
+                        <Label.GestureRecognizers>
+                            <!--<TapGestureRecognizer
+                                    Tapped="NotAccount_Clicked"
+                                    NumberOfTapsRequired="1" />-->
+                      </Label.GestureRecognizers>
+                  </Label>
+        </StackLayout>  
+        
+    </ContentPage.Content>
+</ContentPage>
