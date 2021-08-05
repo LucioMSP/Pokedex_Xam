@@ -1,9 +1,7 @@
-﻿using System;
-
+﻿using Android.OS;
 using Android.App;
-using Android.Content.PM;
 using Android.Runtime;
-using Android.OS;
+using Android.Content.PM;
 
 namespace Pokedex_Xam.Droid
 {

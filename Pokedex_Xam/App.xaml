@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pokedex_Xam.App">
     <Application.Resources>
-
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="#302e37"> </Setter>
+            <Setter Property="BarTextColor" Value="#f7522c"></Setter>
+        </Style>
     </Application.Resources>
 </Application>
