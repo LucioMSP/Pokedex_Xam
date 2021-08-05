@@ -53,8 +53,8 @@ namespace Pokedex_Xam.ViewModels
         {
             GetData(pokemon);
 
-        }
 
+        }
 
         public async void GetData(Model.Pokemon pokemon)
         {
@@ -69,8 +69,6 @@ namespace Pokedex_Xam.ViewModels
             Url = pokemonInfo.Sprites.Other.Official_artwork.Front_default;
             IsShowContentStats = true;
             
-
-
             foreach (var item in pokemonInfo.Types)
             {
                 Types.Add(item);
@@ -89,6 +87,7 @@ namespace Pokedex_Xam.ViewModels
             {
                 Moves.Add(item);
             }
+            
         }
 
 
