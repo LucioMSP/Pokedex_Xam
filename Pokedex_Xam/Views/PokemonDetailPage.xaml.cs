@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Xamarin.Forms;
 using Pokedex_Xam.ViewModels;
-using Xamarin.Forms;
 
 namespace Pokedex_Xam.Views
 {

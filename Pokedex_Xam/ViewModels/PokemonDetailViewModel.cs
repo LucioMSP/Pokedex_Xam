@@ -32,12 +32,10 @@ namespace Pokedex_Xam.ViewModels
             OnChangedShowContent(false);
         });
 
-
         public ICommand MovesCommand => new Command(() =>
         {
             OnChangedShowContent(true);
         });
-
 
         public string Name { get { return _name; } set { SetProperty(ref _name, value); } }
 
@@ -52,8 +50,6 @@ namespace Pokedex_Xam.ViewModels
         public PokemonDetailViewModel(Model.Pokemon pokemon)
         {
             GetData(pokemon);
-
-
         }
 
         public async void GetData(Model.Pokemon pokemon)
@@ -87,9 +83,7 @@ namespace Pokedex_Xam.ViewModels
             {
                 Moves.Add(item);
             }
-            
         }
-
 
         public  void OnChangedShowContent(bool isMoves)
         {
@@ -118,6 +112,5 @@ namespace Pokedex_Xam.ViewModels
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }
