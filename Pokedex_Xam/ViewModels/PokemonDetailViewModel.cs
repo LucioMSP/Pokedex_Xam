@@ -27,10 +27,10 @@ namespace Pokedex_Xam.ViewModels
 
         public bool IsShowContentStats { get { return _isShowContentStats; } set { SetProperty(ref _isShowContentStats, value); } }
 
-        public ICommand StatsCommand => new Command( () =>
-        {
-            OnChangedShowContent(false);
-        });
+        public ICommand StatsCommand => new Command(() =>
+       {
+           OnChangedShowContent(false);
+       });
 
         public ICommand MovesCommand => new Command(() =>
         {
@@ -64,7 +64,7 @@ namespace Pokedex_Xam.ViewModels
             Name = pokemonInfo.Name;
             Url = pokemonInfo.Sprites.Other.Official_artwork.Front_default;
             IsShowContentStats = true;
-            
+
             foreach (var item in pokemonInfo.Types)
             {
                 Types.Add(item);
@@ -72,10 +72,10 @@ namespace Pokedex_Xam.ViewModels
 
             foreach (var item in pokemonInfo.Stats)
             {
-                Decimal attack =  Convert.ToDecimal(item.Base_stat) / (Decimal)100;
+                Decimal attack = Convert.ToDecimal(item.Base_stat) / (Decimal)100;
                 Decimal decimalAtack = Math.Round(attack, 1);
 
-                item.Base_stat_Porcent = decimalAtack.ToString("N2"); 
+                item.Base_stat_Porcent = decimalAtack.ToString("N2");
                 Stats.Add(item);
             }
 
@@ -85,7 +85,7 @@ namespace Pokedex_Xam.ViewModels
             }
         }
 
-        public  void OnChangedShowContent(bool isMoves)
+        public void OnChangedShowContent(bool isMoves)
         {
             IsShowContentMoves = isMoves;
             IsShowContentStats = !isMoves;
