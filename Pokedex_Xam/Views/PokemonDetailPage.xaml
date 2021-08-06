@@ -40,9 +40,9 @@
                             </Grid.ColumnDefinitions>
                             <StackLayout Grid.Column="0">
                                 <Frame Background="#572364" Margin="0" Padding="35,10" HasShadow="False" CornerRadius="18">
-                                    <Label Text="STATS" TextColor="White"></Label>
+                                    <Label Text="STATS" TextColor="White"/>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding StatsCommand}"></TapGestureRecognizer>
+                                        <TapGestureRecognizer Command="{Binding StatsCommand}" />
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </StackLayout>
@@ -63,13 +63,13 @@
                                 <DataTemplate>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="100"/>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <Label Text="{Binding Stat.Name}" Grid.Column="0"   VerticalOptions="CenterAndExpand" TextColor="Black"></Label>
+                                        <Label Text="{Binding Stat.Name}" Grid.Column="0" VerticalOptions="CenterAndExpand" TextColor="Black"></Label>
                                         <ProgressBar Progress="{Binding Base_stat_Porcent}" ProgressColor="#572364" Grid.Column="1" VerticalOptions="CenterAndExpand"/>
-                                       <Label Text="{Binding Base_stat}" Grid.Column="2" VerticalOptions="CenterAndExpand" TextColor="Black"></Label>
+                                        <Label Text="{Binding Base_stat}" Grid.Column="2" VerticalOptions="CenterAndExpand" TextColor="Black" />
 
                                     </Grid>
                                 </DataTemplate>
@@ -95,7 +95,7 @@
                     </Grid>
                 </Frame>
                 <Image Source="{Binding Url}" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds=".5,.20" AbsoluteLayout.LayoutFlags="PositionProportional" HeightRequest="200" WidthRequest="200"></Image>
-                <Image HorizontalOptions="CenterAndExpand"  Source="pokebola.png" HeightRequest="90" WidthRequest="90" Opacity=".5"  AbsoluteLayout.LayoutBounds=".5,.04" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <Image HorizontalOptions="CenterAndExpand" Source="pokebola.png" HeightRequest="100" WidthRequest="100" Opacity=".5"  AbsoluteLayout.LayoutBounds=".5,.04" AbsoluteLayout.LayoutFlags="PositionProportional" Margin="10,-25"/>
                 <BoxView Background="#d7d7d7" HeightRequest="30" WidthRequest="3000" AbsoluteLayout.LayoutBounds=".5,1" AbsoluteLayout.LayoutFlags="PositionProportional"/>
             </AbsoluteLayout>
         </StackLayout>
