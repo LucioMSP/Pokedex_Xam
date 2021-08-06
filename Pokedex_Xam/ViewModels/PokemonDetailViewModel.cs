@@ -22,6 +22,9 @@ namespace Pokedex_Xam.ViewModels
         private string _name;
         private bool _isShowContentStats;
         private bool _isShowContentMoves;
+        private int _countType;
+
+        public int CountType { get { return _countType; } set { SetProperty(ref _countType, value); } }
 
         public bool IsShowContentMoves { get { return _isShowContentMoves; } set { SetProperty(ref _isShowContentMoves, value); } }
 
@@ -82,6 +85,15 @@ namespace Pokedex_Xam.ViewModels
             foreach (var item in pokemonInfo.Moves)
             {
                 Moves.Add(item);
+            }
+
+            if (Types.Count == 1)
+            {
+                CountType = 100;
+            }
+            else if (Types.Count == 2)
+            {
+                CountType = 185;
             }
         }
 

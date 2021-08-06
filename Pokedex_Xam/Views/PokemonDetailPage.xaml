@@ -19,17 +19,17 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" Text="{Binding Name}" HorizontalTextAlignment="Center" Margin="0,65,0,0" FontSize="Title" TextColor="Black"></Label>
-                        <CollectionView  ItemsSource="{Binding Types}" HorizontalOptions="CenterAndExpand" Grid.Row="1" Margin="100,0">
+                        <CollectionView  ItemsSource="{Binding Types}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="1" HeightRequest="45" WidthRequest="{Binding CountType}">
                             <CollectionView.ItemsLayout>
                                 <LinearItemsLayout Orientation="Horizontal"/>
                             </CollectionView.ItemsLayout>
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                        <StackLayout HorizontalOptions="CenterAndExpand">
-                                            <Frame Background="White" Padding="18,6" HasShadow="False" CornerRadius="15" BorderColor="#572364" Margin="5,0">
+                                    <StackLayout>
+                                        <Frame Background="White" Padding="18,6" HasShadow="False" CornerRadius="15" BorderColor="#572364" Margin="5,0">
                                                 <Label Text="{Binding Type.Name}" TextColor="#572364"></Label>
-                                            </Frame>
-                                        </StackLayout>
+                                         </Frame>
+                                    </StackLayout>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                   </CollectionView>     
